@@ -8,5 +8,5 @@ router.register(r"loans", LoansApi, basename="loans")
 
 url_patterns = [
     path("", include(router.urls)),
-    path("loans/update_loan", AdminView.as_view(), name="update-loan"),
+    path("loans/admin_ops", AdminView.as_view(), name="admin-ops"),
 ]

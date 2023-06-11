@@ -73,7 +73,7 @@ class AdminView(APIView):
 
     def get(self, request):
         queryset = Loan.objects.all()
-        serializer = LoansSerializer(queryset)
+        serializer = LoansSerializer(queryset, many=True)
         return success_response(data=serializer.data, status_code=status.HTTP_200_OK)
 
     def post(self, request):

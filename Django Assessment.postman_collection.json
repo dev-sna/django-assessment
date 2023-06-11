@@ -1,0 +1,258 @@
+{
+	"info": {
+		"_postman_id": "09befdb2-eb05-4428-8778-91d9c1159eaa",
+		"name": "Django Assessment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6977002"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"johnhill@gmail.com\",\n    \"first_name\": \"John\",\n    \"last_name\": \"Hill\",\n    \"password\": \"TestUser1\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/sign_up/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"sign_up",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"shahnawaz19415@gmail.com\",\n    \"password\": \"ShahNawaz1\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/login/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Loan Request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg2NzQzMjA0LCJpYXQiOjE2ODY0ODQwMDQsImp0aSI6ImIzMzY1ZGY1MGRkNzRkMWJiY2U2MTNhNzcyMTRkOWRiIiwidXNlcl9pZCI6MX0.1dKNR3-ioR1ON4OctsE2LPYlv_D7z1Ofi7NMDfNPrSA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 500,\n    \"duration_in_days\": 30\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/loans/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"loans",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pay Loan",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg2NzQzMjA0LCJpYXQiOjE2ODY0ODQwMDQsImp0aSI6ImIzMzY1ZGY1MGRkNzRkMWJiY2U2MTNhNzcyMTRkOWRiIiwidXNlcl9pZCI6MX0.1dKNR3-ioR1ON4OctsE2LPYlv_D7z1Ofi7NMDfNPrSA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 4,\n    \"amount\": 500\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/loans/pay_loan/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"loans",
+						"pay_loan",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Loan",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg2NzQ5MjA2LCJpYXQiOjE2ODY0OTAwMDYsImp0aSI6IjhiZTQ1MDJhMzZlODQ1NzU5MDhiMjkzMDg2MzFiYmE2IiwidXNlcl9pZCI6Mn0._Daour_Knaf5Br_Xqj0YU41FwgjmW2_9AhLXMmOLhAI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 4,\n    \"action\": \"APPROVE\",\n    \"comment\": \"Loan Approved\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/loans/admin_ops",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"loans",
+						"admin_ops"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Loans",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg2NzQzMjA0LCJpYXQiOjE2ODY0ODQwMDQsImp0aSI6ImIzMzY1ZGY1MGRkNzRkMWJiY2U2MTNhNzcyMTRkOWRiIiwidXNlcl9pZCI6MX0.1dKNR3-ioR1ON4OctsE2LPYlv_D7z1Ofi7NMDfNPrSA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/loans",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"loans"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Loans Admin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg2NzQ5MjA2LCJpYXQiOjE2ODY0OTAwMDYsImp0aSI6IjhiZTQ1MDJhMzZlODQ1NzU5MDhiMjkzMDg2MzFiYmE2IiwidXNlcl9pZCI6Mn0._Daour_Knaf5Br_Xqj0YU41FwgjmW2_9AhLXMmOLhAI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/loans/admin_ops",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"loans",
+						"admin_ops"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

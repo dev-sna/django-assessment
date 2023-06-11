@@ -24,7 +24,7 @@ class LoansSerializer(serializers.ModelSerializer):
 class CreateLoanRequestSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(required=False, allow_null=True)
     amount = serializers.IntegerField(required=True)
-    duration_in_days = serializers.IntegerField(required=True)
+    duration_in_days = serializers.IntegerField(required=True, write_only=True)
 
     def create(self, validated_data):
         user = validated_data["user"]
