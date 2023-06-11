@@ -76,7 +76,7 @@ class PayLoanRequestSerializer(serializers.ModelSerializer):
         )
 
 class UpdateLoanRequestSerializer(serializers.ModelSerializer):
-    action = serializers.CharField()
+    action = serializers.CharField(write_only=True)
     comment = serializers.CharField()
     
     amount = serializers.IntegerField(required=False)
@@ -84,7 +84,7 @@ class UpdateLoanRequestSerializer(serializers.ModelSerializer):
 
     def update(self, instance, validated_data):
         action = validated_data.pop("action", None)
-        comment = validated_data.pop("comment", None)
+        comment = validated_data["comment"]
 
         if action == "APPROVE":
             instance.status = "APR"
@@ -104,5 +104,5 @@ class UpdateLoanRequestSerializer(serializers.ModelSerializer):
     class Meta:
         model = Loan
         fields = (
-            "id", "amount", "due_date", "action", "comment",
+            "id", "amount", "due_date", "comment", "action"
         )

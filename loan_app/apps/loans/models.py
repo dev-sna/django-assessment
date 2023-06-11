@@ -21,5 +21,6 @@ class Loan(models.Model):
         choices=LOAN_STATUS_CHOICES,
         default=LOAN_PENDING,
     )
+    comment = models.CharField(max_length=200, blank=True, null=True)
     amount_paid = models.IntegerField(default=0)
     is_fully_paid = models.BooleanField(default=False)
