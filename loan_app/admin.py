@@ -10,6 +10,6 @@ class UserAdmin(admin.ModelAdmin):
 
 
 @admin.register(Loan)
-class QuizAdmin(admin.ModelAdmin):
+class LoanAdmin(admin.ModelAdmin):
     pass
 
